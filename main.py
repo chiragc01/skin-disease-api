@@ -133,4 +133,8 @@ async def predict(file: UploadFile = File(...)):
         "common": result["common"],
         "all_probabilities": all_probs
     }
+import os
 
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
